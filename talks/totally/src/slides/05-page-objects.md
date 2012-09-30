@@ -24,24 +24,28 @@ Is far more fragile than this…
 
 ## Just good programming
 
-It's the application of trusted principles; encapsulation and reuse.
+It's the application of trusted principles; encapsulation and reuse. Not new at all, but new to the world of web testing/automation.
 
-Not new at all, but new to the world of web testing/automation.
+Traditional browser automation focussed on the page document structure. 
 
-Not just about modelling “pages”. It's about modelling all kinds of things in the domain of a user's actions online.
+    $("form.contact-details input[type=submit]").click()
 
-Just giving symbolic names to page content is a great start.
+Page objects abstract from this, focussing on _user_ concepts.
+
+    somePage.submitButton().click()
+
+When done well, introduces the lexicon of the application into the tests/scripts (e.g. books, people, orders).
+
+    orders[0].lineItems[2].price == 2.00
 
 ## Browser has-a Page
 
-    Browser.drive {
-        to GoogleHomePage
-        search.forTerm "wikipedia"
-        at GoogleResultsPage
-        assert firstResultLink.text() == "Wikipedia"
-        firstResultLink.click()
-        waitFor { at WikipediaPage }
-    }
+    to GoogleHomePage
+    search.forTerm "wikipedia"
+    at GoogleResultsPage
+    assert firstResultLink.text() == "Wikipedia"
+    firstResultLink.click()
+    waitFor { at WikipediaPage }
 
 The `to()` and `click()` methods are changing the underlying page.
 
@@ -53,7 +57,7 @@ This is the first introduction to all of the dynamic dispatch stuff. Might deser
 
 ## Geb's Page Objects
 
-Geb builds the Page Object pattern directly into the framework (though it is optional).
+Geb builds the Page Object pattern deeply into the framework (though it is optional).
 
     import geb.*
 
