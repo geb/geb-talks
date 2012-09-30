@@ -25,7 +25,7 @@ Content definitions are actually *templates*.
         }
     }
 
-By default, Geb will error if the content you select doesn't exist.
+By default, Geb will error if the content you select doesn't exist to support the principle of fail-fast.
 
 The “`required`” option disables this check.
 
@@ -75,6 +75,21 @@ Modules can be used for reused content fragments.
         }
     }
 
+## Modules
+
+They encapsulate detail.
+
+    to HomePage
+    assert cartInfo.totalCost == 10.00
+
+And support reuse…
+
+    class AnotherPage extends Page {
+        static content = {
+            cartInfo { module CartInfoModule }
+        }
+    }
+    
 ## Modules
 
     <table id="book-results">
