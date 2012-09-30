@@ -23,7 +23,9 @@ It brings together the…
 
 Free Open Source, Apache License, Version 2.0.
 
-Currently at version **0.7.0**.
+Currently at version **0.7.2**. 
+
+Version **1.0.0** in development.
 
 * Home Page — [http://www.gebish.org](http://www.gebish.org)
 * The Book of Geb — [http://www.gebish.org/manual/current](http://www.gebish.org/manual/current)
