@@ -40,7 +40,7 @@ Rapidly improving.
 
 Can use real devices or emulators in most cases.
 
-A headless webkit based driver (PhantomJS) is in progress.
+A headless driver based on [PhantomJS](http://phantomjs.org/ "PhantomJS: Headless WebKit with JavaScript API") (called [GhostDriver](https://github.com/detro/ghostdriver)) is in progress.
 
 ## WebDriver API
 
