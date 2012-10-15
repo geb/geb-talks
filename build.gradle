@@ -200,6 +200,7 @@ project(":talks").subprojects {
             exclude \
                 "**/build/**/*",
                 "**/.gradle/**/*",
+                "**/target/**/*",
                 "**/out/**/*",
                 "**/*.ipr",
                 "**/*.iws",
