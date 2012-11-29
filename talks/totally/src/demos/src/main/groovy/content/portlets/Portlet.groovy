@@ -9,7 +9,7 @@ class Portlet extends Module {
 
     void moveAfter(Portlet portlet) {
         def xOffset = portlet.x + 5 - this.x
-        def yOffset = portlet.y + portlet.height + 5 - this.y
+        def yOffset = portlet.y + portlet.height + 50 - this.y
 
         move(xOffset, yOffset)
     }
