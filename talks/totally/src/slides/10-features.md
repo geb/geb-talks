@@ -56,6 +56,7 @@ Groovy's flexible notion of “truth” makes this powerful.
 
     waitFor { $("p.errorMsg") }.text() == "Error!"
     waitFor { $("p.errorMsg").text() } == "Error!"
+    waitFor { $("p.errorMsg").text() == "Error!" }
 
 Waiting options are configurable…
 
