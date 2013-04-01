@@ -23,7 +23,7 @@ It brings together the…
 
 Free Open Source, Apache License, Version 2.0.
 
-Currently at version **0.7.2**. 
+Currently at version **0.9.0**. 
 
 Version **1.0.0** in development.
 
