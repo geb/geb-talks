@@ -98,3 +98,7 @@ Very lightweight, minimum requirements are low.
     }
 
 You can pick which Page Object features you want.
+
+# Demo
+
+Google for Wikipedia (with pages)
