@@ -16,7 +16,7 @@ Geb features a “Navigator API” that is inspired by jQuery.
 
     // This is Geb code, not jQuery JavaScript…
     
-    $("h1").previous().children();
+    $("h1").previous().children()
 
 API is not identical.
 
