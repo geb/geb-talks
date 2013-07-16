@@ -4,7 +4,7 @@ import org.gradle.plugins.lesscss.LessCss
 import org.gradle.plugins.xhtmlrenderer.XhtmlToPdf
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "1.2"
+    gradleVersion = "1.7-rc-1"
 }
 
 // Put the downloads in a different place so clean doesn't wipe them outs
@@ -199,6 +199,7 @@ project(":talks").subprojects {
             into "demos"
             exclude \
                 "**/build/**/*",
+				"**/*reports/**/*",
                 "**/.gradle/**/*",
                 "**/target/**/*",
                 "**/out/**/*",
@@ -212,7 +213,7 @@ project(":talks").subprojects {
 
     task packageZip(type: Zip) {
         from tasks.package
-        archiveName "gradle-${project.name}.zip"
+        archiveName "geb-${project.name}.zip"
         destinationDir buildDir
     }
     
