@@ -1,35 +1,51 @@
-apply plugin: "groovy"
-apply plugin: "idea"
-apply plugin: "eclipse"
-
-repositories {
+buildscript {
+  repositories {
+    maven { url "https://oss.jfrog.org/artifactory/repo" }
     mavenCentral()
+  }
+  dependencies {
+    classpath 'org.ratpack-framework:ratpack-gradle:0.9.0-SNAPSHOT'
+  }
 }
 
-// The drivers we want to use
-ext.drivers = ["htmlunit", "firefox", "chrome"]
+repositories {
+  mavenCentral()
+  maven { url "https://oss.jfrog.org/artifactory/repo" }
+  maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+  maven { url "http://repo.springsource.org/repo" }
+}
+
+apply plugin: "ratpack-groovy"
+
+apply plugin: "idea"
+idea {
+    project {
+        jdkName "1.7"
+        languageLevel "1.7"
+    }
+}
+
+def gebVersion = "0.9.1-SNAPSHOT"
+def seleniumVersion = "2.33.0"
+def drivers = ["chrome", "firefox"]
 
 dependencies {
-    groovy "org.codehaus.groovy:groovy-all:1.8.6"
+	springloaded "org.springsource.springloaded:springloaded-core:1.1.1"
     
-    def gebVersion = "0.9.0-RC-1"
-    def seleniumVersion = "2.26.0"
-
-    // If using Spock, need to depend on geb-spock
-    compile "org.gebish:geb-spock:$gebVersion"
-    
-    // Drivers
     drivers.each { driver ->
         compile "org.seleniumhq.selenium:selenium-$driver-driver:$seleniumVersion"
     }
 
-    testCompile "org.spockframework:spock-core:0.7-groovy-1.8"
-    
-    // If using JUnit, need to depend on geb-junit (3 or 4)
-    testCompile "org.gebish:geb-junit4:$gebVersion"
-    testCompile "junit:junit-dep:4.8.2"
+    compile "org.gebish:geb-junit4:$gebVersion"
+
+    compile "org.gebish:geb-spock:$gebVersion"
+    compile "org.spockframework:spock-core:0.7-groovy-2.0"
+}
+
+run {
+    systemProperty "-Dratpack.reloadable", "true"
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion "1.3"
+	gradleVersion = '1.7-rc-1'
 }
