@@ -49,8 +49,20 @@ You need to pull in a specific driver implementation for each browser you want t
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-firefox-driver</artifactId>
-      <version>2.22.0</version>
+      <version>2.30.0</version>
     </dependency>
+
+## Browser farms
+
+WebDriver supports running a "driver server" allowing the creation of a browser farm.
+
+1. Use multiple browsers for parallel execution
+2. Run tests on Linux, but test with IE
+3. Centrally manage browsers for CI and developers in one place
+
+You can even run browsers in the cloud with [SauceLabs](https://saucelabs.com/ "Sauce Labs: Cloudified Mobile & Browser Testing").
+
+(more on this later)
 
 ## WebDriver
 
@@ -68,14 +80,10 @@ You need to pull in a specific driver implementation for each browser you want t
 
 Geb aims to embrace the pros and solve the cons by building on top.
 
-## Architecture
+## Geb & WebDriver
 
-<img src="img/testing_architecture.png" style="margin-top: 2em"/>
+WebDriver does the heavy lifting of talking to browsers. 
 
-## WebDriver API
+Geb is a convenience framework around WebDriver.
 
-Geb sits on top of WebDriver so you very rarely deal with its API, though it's accessible if you need it.
-
-Geb never talks to the actual browser. 
-
-That's what WebDriver does.
+You can access the WebDriver API if you need it.

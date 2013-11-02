@@ -16,16 +16,14 @@ Groovy is…
 
 Geb uses Groovy's dynamism to remove boilerplate, to achieve pseudo English *code*.
 
-    to GoogleHomePage
-    searchFor "Wikipedia"
-    assert resultName(0) == "Wikipedia"
-    resultLink(0).click()
-    at WikipediaPage
+* methodMissing() / propertyMissing() = *dynamic delegation*
+* Closures and delegates = *micro DSLs*
+* Compile time transforms = *implicit assertions*
+* Minimal punctuation = *closer to natural language*
+* Optional typing = *remove type noise*
 
-Conciseness = improved clarity & improved maintainability.
-
-\* As of Geb 0.7.0 also uses Groovy's compile time transfomations for better error diagnostics.
+Conciseness = improved clarity = improved maintainability.
 
 # Demo
 
-Google for Wikipedia
+Geb Scripts

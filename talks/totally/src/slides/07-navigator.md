@@ -1,6 +1,6 @@
 # Navigator API
 
-jQuery inspired content selection/navigation
+jQuery inspired content selection/interaction
 
 ## The $() method
 

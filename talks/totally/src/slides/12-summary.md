@@ -8,7 +8,7 @@ Groovy Browser Automation.
 * User Mailing List — [xircles.codehaus.org/projects/geb/lists](http://xircles.codehaus.org/projects/geb/lists)
 * Maven Central — [mvnrepository.com/artifact/org.codehaus.geb](http://mvnrepository.com/artifact/org.codehaus.geb)
 
-Next major release will be **1.0**.
+Next major release will be **1.0.0**.
 
 # Thank you
 

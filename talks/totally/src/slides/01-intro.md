@@ -2,23 +2,6 @@
 
 Totally Groovy Browser Automation
 
-## What is Geb?
-
-Geb is a **browser automation solution**.
-
-You can use it for…
-
-* Acceptance Testing Web Applications
-* Automating Web Sites
-* Screen Scraping
-
-It brings together the…
-
-* Cross browser automation capabilities of *WebDriver*
-* Elegance of *jQuery* content selection
-* Expressiveness of the *Groovy* language
-* Robustness of *Page Object* modelling
-
 ## About the Project
 
 Free Open Source, Apache License, Version 2.0.
@@ -35,18 +18,19 @@ Version **1.0.0** in development.
 
 Built by [Gradle](http://www.gradle.org), naturally.
 
-## Project Components
+## What is Geb?
 
-The heart is the **geb-core** component which is all you really need (plus WebDriver).
+Geb is a **browser automation solution**.
 
-For testing, you probably also want one of these as well:
+You can use it for…
 
-* geb-spock
-* geb-junit3
-* geb-junit4
-* geb-testng
-* geb-easyb
+* Acceptance Testing Web Applications
+* Automating Web Sites
+* Screen Scraping
 
-(Has been used from Cucumber as well).
+It brings together the…
 
-There is also a Grails plugin.
+1. Cross browser automation capabilities of *WebDriver*
+2. Elegance of *jQuery* content selection
+3. Expressiveness of the *Groovy* language
+4. Robustness of *Page Object* modelling
