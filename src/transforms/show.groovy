@@ -1,7 +1,7 @@
 transform {
     body().addClass("deck-container")
     head().append("""
-        <title>Gradle</title>
+        <title>Geb Workshop</title>
 
         <script src="deckjs/jquery-1.7.min.js"></script>
         <script src="deckjs/modernizr.custom.js"></script>
