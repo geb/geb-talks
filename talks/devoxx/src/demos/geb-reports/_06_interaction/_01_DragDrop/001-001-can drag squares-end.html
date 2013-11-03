@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="/js/jquery-ui.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <style>
+        .draggable {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            margin: 1em;
+            border: 1px solid black;
+            display: inline-block;
+            box-shadow: 0px 0px 10px black;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $(".draggable").draggable();
+        });
+    </script>
+</head>
+<body style="cursor: auto;">
+
+<div class="ui-widget-content draggable ui-draggable" style="background-color: rgb(144, 238, 144); position: relative; left: 572px; top: 32px;">
+    <p></p>
+</div>
+<div class="ui-widget-content draggable ui-draggable" style="background-color: rgb(173, 216, 230); position: relative; left: 200px; top: 200px;">
+    <p></p>
+</div>
+
+
+
+</body></html>
