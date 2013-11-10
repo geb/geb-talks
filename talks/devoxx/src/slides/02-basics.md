@@ -4,15 +4,13 @@
 
 ## WebDriver
 
-Successor to the Selenium project.
+a.k.a “Selenium 2”.
 
-Also known as “Selenium 2”.
+* Extremely active project
+* Investment from big players (Facebook, Google, Mozilla, Opera)
+* Heavily used by many big sites
 
-Sponsored and driven by Google.
-
-Becoming a W3C standard.
-
-[http://dvcs.w3.org/hg/webdriver/raw-file/515b648d58ff/webdriver-spec.html](http://dvcs.w3.org/hg/webdriver/raw-file/515b648d58ff/webdriver-spec.html)
+Becoming a [W3C standard](http://dvcs.w3.org/hg/webdriver/raw-file/515b648d58ff/webdriver-spec.html).
 
 ---
 

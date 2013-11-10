@@ -4,53 +4,63 @@ Taming Functional Web Testing
 
 ## The Problem
 
+Automated functional web testing is painful.
+
+Unfortunately, can't ignore it just because it's hard.
+
+## High cost
+
+* flakey
+* hard to write
+* slow
+
+## High value
+
+When done right, gives high assurance that things are working.
+
 # Approaches
 
 ## Recorder Driven
 
-* Easy to produce, impossible to maintain
-* Optimizing the wrong thing
-* Difficult to understand after fact
+e.g. Selenium IDE
+
+* Easy to produce
+* Hard to evolve
+* Hard to read
 * Hard to refactor
-* Hard to remove (don't know what it's doing)
+* Hard to remove
+
+Incomprehensible.
 
 ## Programmatic
 
-Early generations of tools: Imperative scripts, no modelling.
+e.g. Canoo WebTest, early WebDriver
 
-Only slightly better than recorded tests.
-
-Lots of duplicate code.
-
-Hard to understand over time.
+* Marginally better than recorder driven.
+* Typically no reuse or abstractions.
 
 ## Model Driven
 
-Introduction of page objects (i.e. domain modelling).
+e.g. Page Objects
 
-Modelling framework for web app interaction.
-
-Focussed on the _concept_ of a page as the central unit.
-
-Reduced duplication, increased clarity (somewhat).
+* Easier to maintain & refactor
+* Supports reuse
+* Better comprehensibility through abstractions
 
 ## Natural Language
 
-Different execution model based on higher order story description.
+e.g. Cucumber
 
-e.g. Fitnesse, Cucumber.
-
-Introduces indirection overhead to enhance clarity and promote reuse.
-
-Cost of extra overhead is not always offset by increased communication gains.
-Developers understand code, optimise for developers.
+* Can be layered on top of modelling
+* Emphasis on comprehensibility
+* Supports reuse
+* Indirection cost
 
 ## Geb & Spock
 
-Geb: DSL oriented framework for browser automation
-Spock: Productivity and expressivity focussed test execution framework
+Developer productivity focussed approach.
 
-Maintainable, expressive tests purely in code.
-
-
-
+* DSL based (not Natural Language)
+* Just Groovy code (no regular expression mapping)
+* Emphasis on modelling
+* Optimized for failure
