@@ -72,3 +72,42 @@ There are [more of these](http://www.gebish.org/manual/current/navigator.html#at
 Most of these methods take selectors, indexes and attribute text/matchers too.
 
     $("p").nextAll(".listing")
+
+## Form Shortcuts
+
+Syntax sugar for working with form controls.
+
+    when:
+    username = "foo"
+    password = "bar"
+    
+Same as:
+
+    when:
+    $("[name=username]").value("foo")
+    $("[name=password]").value("bar")
+    
+## Form Shortcuts (cont.)
+
+Can be scoped.
+
+    when:
+    $("form.login").with {
+        username = "foo"
+        password = "bar"
+    }
+    
+Faster and safer.
+
+## Form Shortcuts (cont.)
+
+Works with all types.
+
+    when:
+    someSelect = "one of the option values"
+    someSelect = "one of the option texts"
+    someMultiSelect = ["option1", "option2"]
+    someCheckbox = true // or false
+    someRadioGroup = "The value I want"
+    
+Same for reading.

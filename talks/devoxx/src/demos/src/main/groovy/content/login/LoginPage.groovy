@@ -11,7 +11,7 @@ class LoginPage extends Page {
     static content = {
         form { $("form") }
         heading { $("h1").text() }
-        signinButton(to: [LoginSuccessPage, LoginFailedPage]) { $("button") }
+        signinButton { $("button") }
         textTypeControls { form.find("input[type=text],input[type=password]") }
     }
 

@@ -26,8 +26,38 @@ Do WebDriver + Spock
 
 ## Geb
 
-Geb basics
+Full solution framework on top of WebDriver.
+
+* ASLv2 / Open Source
+* Groovy only
+* DSL based
+* Developer focussed
+* Test framework agnostic (though optimized for Spock)
+* Solutions to common problems
+
+About 4 years old.
 
 ---
 
 Spock + Geb demo.
+
+## Geb & Spock
+
+Spock is the recommended test framework for Geb.
+
+* Low ceremony (little syntactic noise)
+* Highly readable
+* No assertion APIs
+* Great diagnostic messages
+
+## Geb API
+
+The `geb.Browser` object.
+
+    import geb.*
+    
+    def browser = new Browser()
+    browser.go "http://app.org"
+    browser.$("h1").text == "Some App"
+
+Implicitly delegated to in GebSpecs.

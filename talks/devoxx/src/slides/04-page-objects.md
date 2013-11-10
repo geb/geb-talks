@@ -1,10 +1,10 @@
 # Page Objects
 
-## What are they?
+## Page Objects
 
-In a phrase: Domain Modelling.
+A useful unit of abstraction to give our code some structure.
 
-By modelling and creating *abstractions*, we can isolate implementation detail.
+Popularized by WebDriver.
 
 Bad…
 
@@ -24,21 +24,22 @@ Encapsulation, reuse, composition.
     
 ## Focus on the domain
 
-Traditional browser automation focussed on the page document structure. 
+Focus on interaction instead of structure. 
+
+Bad…
 
     $("form.contact-details input[type=submit]").click()
 
-Page objects abstract from this, focussing on _user_ concepts.
+Better…
 
     contactDetailsForm.submitButton().click()
 
 ## Domain modelling
 
-When done well, introduces the lexicon of the application into the tests/scripts (e.g. books, people, orders).
-
     to OrdersPage
-    
     orders[0].lineItems[2].price == 2.00
+
+Application domain shines through.
 
 ## Geb's Page Objects
 
@@ -63,13 +64,11 @@ Geb builds the Page Object pattern deeply into the framework.
         static url = "http://google.com/ncr"
     }
 
-Pages can define a url that defines the page location.
-
-The `to()` method sends the browser there and sets that as the current page object.
+Usage:
 
     to GoogleHomePage
 
-The page url can be relative (will be resolved against a config driven base).
+Can be relative.
 
 ## Browser has-a Page
 
@@ -77,14 +76,11 @@ The page url can be relative (will be resolved against a config driven base).
     browser.page instanceof LoginPage
     
     browser.page.login(…)
-    
     browser.page instanceof LoginFailedPage
-
-Certain methods change the underlying page instance.
 
 ## Page delegation
 
-The `browser` forwards unhandled method calls to its `page`.
+This:
 
     browser.page.login(…)
     

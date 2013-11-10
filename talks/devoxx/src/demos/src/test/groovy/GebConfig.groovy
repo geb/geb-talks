@@ -1,6 +1,7 @@
 import geb.report.ReportState
 import geb.report.Reporter
 import geb.report.ReportingListener
+import org.codehaus.groovy.runtime.StackTraceUtils
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.remote.DesiredCapabilities
@@ -9,6 +10,10 @@ import org.openqa.selenium.remote.RemoteWebDriver
 baseUrl = "http://localhost:5050"
 reportsDir = "geb-reports"
 
+StackTraceUtils.addClassTest {
+    println it
+    it.startsWith("geb.")
+}
 driver = {
     new ChromeDriver()
 }
@@ -17,7 +22,7 @@ driver = {
 reportingListener = new ReportingListener() {
     void onReport(Reporter reporter, ReportState reportState, List<File> reportFiles) {
         reportFiles.each {
-            println "[[ATTACHMENT|$it.absolutePath]]"
+            // println "[[ATTACHMENT|$it.absolutePath]]"
         }
     }
 }
