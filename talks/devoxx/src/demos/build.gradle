@@ -28,6 +28,10 @@ def gebVersion = "0.9.2"
 def seleniumVersion = "2.36.0"
 def drivers = ["chrome", "firefox"]
 
+configurations.all {
+    exclude module: "groovy"
+}
+
 dependencies {
     springloaded "org.springsource.springloaded:springloaded-core:1.1.4"
     
@@ -37,5 +41,7 @@ dependencies {
 
     compile "org.gebish:geb-junit4:$gebVersion"
     compile "org.gebish:geb-spock:$gebVersion"
-    compile "org.spockframework:spock-core:0.7-groovy-2.0"
+    compile "org.spockframework:spock-core:0.7-groovy-2.0", {
+        exclude module: "groovy-all"
+    }
 }
