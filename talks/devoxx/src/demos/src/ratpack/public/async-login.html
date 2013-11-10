@@ -24,7 +24,7 @@
 <body>
 <div class="container">
 
-    <h1 style="text-align: center">Please sign in (ajax style)</h1>
+<h1 style="text-align: center">Please sign in (async style)</h1>
     <div class='alert fade'><button type='button' class='close'>&times;</button><div></div></div>
     <form class="form-horizontal">
 
@@ -71,7 +71,7 @@
 
         setTimeout(function() {
             $("#loader").hide();
-            var valid = username == "user" && password == "password";
+            var valid = username == "devoxx" && password == "devoxx";
             var div = $("div.alert");
 
             var p = div.find("div");
@@ -81,7 +81,7 @@
             if (valid) {
                 p.text("Login successful. Please wait for redirection…");
                 setTimeout(function() {
-                    window.location = "/login?username=user&password=password&rememberme=" + remember;
+                    window.location = "/login?username=devoxx&password=devoxx&rememberme=" + remember;
                 }, 2000);
             } else {
                 p.text("Login failed.");
