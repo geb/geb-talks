@@ -14,15 +14,11 @@ class _01_DragDrop extends GebSpec {
         given:
         to DragPage
 
-        pause(browser)
-
         DraggableSquare greenSquare = page.square(0)
         DraggableSquare blueSquare = page.square(1)
 
         when:
         blueSquare.drag(200, 200)
-
-        pause(browser)
 
         def blueTopLeft = [blueSquare.x, blueSquare.y]
         def blueBottomLeft = [blueSquare.x, blueSquare.y + blueSquare.height]

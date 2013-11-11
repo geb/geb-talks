@@ -8,7 +8,6 @@ Popularized by WebDriver.
 
 Bad…
 
-    go "/login.html"
     $("input[name=username]").value("user")
     $("input[name=password]").value("password")
     $("input[type=submit]").click()
@@ -17,46 +16,39 @@ Bad…
 
 Better…
 
-    to LoginPage
-    login "user", "password"
+    page.login "user", "password"
 
-Encapsulation, reuse, composition.
+* Encapsulation of structure
+* Behaviour as methods
+* Reusable unit 
     
-## Focus on the domain
+## Higher abstractions
 
-Focus on interaction instead of structure. 
+User language:
 
-Bad…
+     contactDetailsForm.submitButton().click()
 
-    $("form.contact-details input[type=submit]").click()
+Domain language:
 
-Better…
-
-    contactDetailsForm.submitButton().click()
-
-## Domain modelling
-
-    to OrdersPage
     orders[0].lineItems[2].price == 2.00
+    
+Increased comprehensibility.
 
-Application domain shines through.
 
 ## Geb's Page Objects
-
-Geb builds the Page Object pattern deeply into the framework.
 
     import geb.*
 
     class GoogleHomePage extends Page {
         static url = "http://google.com/ncr"
         static at = { title == "Google" }
+        
         static content = {
             // The content DSL
         }
         
         void anInstanceMethod() {}
     }
-
 
 ## The to() method
 
@@ -78,19 +70,19 @@ Can be relative.
     browser.page.login(…)
     browser.page instanceof LoginFailedPage
 
-## Page delegation
+Delegated to implicitly…
 
-This:
+    browser.login(…)    
 
-    browser.page.login(…)
-    
-Can be written as:
+In test/spec…
 
-    browser.login(…)
+    login(…)
+
+(implicit browser delegation)
 
 ## At Checking
 
-The “at checking” mechanism enables fail fast and less debugging.
+Fail fast == less debugging.
 
     class LoginPage extends Page {
         static at = { 

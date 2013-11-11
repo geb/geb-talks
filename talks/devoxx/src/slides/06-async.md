@@ -1,4 +1,4 @@
-# Ajax and effects
+# Async
 
 Trying to solve the halting problem…
 
@@ -8,8 +8,9 @@ Modern web apps are fundamentally async.
 
 * Ajax
 * Effects
+* SPAs
 
-Only practical solution is to use spin asserts.
+Only known solution is to use spin asserts.
 
 ## Spin asserts
 
@@ -19,20 +20,28 @@ Keep polling to see if something is true yet.
     waitFor { $("img.spinner").displayed }
     waitFor { $("p.requestResult").text() == "Request Successful!" }
 
-The `waitFor()` method can be used anywhere to wait for any condition to be true.
+Or…
+
+    waitFor {
+        $("img.spinner").displayed
+        $("p.requestResult").text() == "Request Successful!"
+    }
+
+Implicitly assertions.
 
 ## Groovy Truth
 
-Groovy's flexible notion of “truth” makes this powerful.
+Groovy's truthiness.
 
     waitFor { $("p.errorMsg") }.text() == "Error!"
+    
     waitFor { $("p.errorMsg").text() } == "Error!"
+    
     waitFor { $("p.errorMsg").text() == "Error!" }
 
-Depends on what you are testing for.
+Very useful.
 
-
-## Dynamic Content
+## Waiting Content
 
     class DynamicPage extends Page {
         static content = {
@@ -40,12 +49,12 @@ Depends on what you are testing for.
         }
     }
 
-Geb will implicitly wait for this content to appear.
+Waiting now implicit.
 
     to DynamicPage
     errorMsg.text == "Ajax request failed!"
 
-By default, it will look for it every 100ms for 5s before giving up.
+Best approach.
 
 ## Timeout and retry
 
@@ -80,7 +89,7 @@ Named presets support fail fast.
 
 ## “Continuous Optimist”
 
-Wind up the timeout value on the CI server…
+Wind up the timeout value on the CI server.
 
 `GebConfig.groovy`:
 
@@ -90,7 +99,3 @@ Wind up the timeout value on the CI server…
     }
 
 Avoids premature timeouts and false failures.
-
-# Demo
-
-Async

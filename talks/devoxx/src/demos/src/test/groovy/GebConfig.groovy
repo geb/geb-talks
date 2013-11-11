@@ -1,22 +1,11 @@
+import geb.driver.SauceLabsDriverFactory
 import geb.report.ReportState
 import geb.report.Reporter
 import geb.report.ReportingListener
-import org.codehaus.groovy.runtime.StackTraceUtils
 import org.openqa.selenium.chrome.ChromeDriver
-import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.remote.DesiredCapabilities
-import org.openqa.selenium.remote.RemoteWebDriver
 
 baseUrl = "http://localhost:5050"
 reportsDir = "geb-reports"
-
-StackTraceUtils.addClassTest {
-    println it
-    it.startsWith("geb.")
-}
-driver = {
-    new ChromeDriver()
-}
 
 // Enable integration with: https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Attachments+Plugin
 reportingListener = new ReportingListener() {
@@ -27,19 +16,23 @@ reportingListener = new ReportingListener() {
     }
 }
 
-environments {
-    ie {
-        baseUrl = "http://10.98.253.167:5050"
 
-        // See http://code.google.com/p/selenium/wiki/RemoteWebDriverServer
-        // You need to have the selenium-server running on a machine with IE installed
-        driver = {
-            def server = new URL("http://172.16.229.144:4444/wd/hub")
-            def browserProfile = DesiredCapabilities.internetExplorer()
-            new RemoteWebDriver(server, browserProfile)
-        }
+
+
+def sauceBrowser = System.getProperty("geb.sauce.browser")
+if (sauceBrowser) {
+    def username = System.getenv("GEB_SAUCE_LABS_USER")
+    assert username
+    def accessKey = System.getenv("GEB_SAUCE_LABS_ACCESS_PASSWORD")
+    assert accessKey
+
+    reportsDir = "cross-browser/${[sauceBrowser username, accessKey].join("_")}"
+
+    driver = {
+        new SauceLabsDriverFactory().create(sauceBrowser, username, accessKey)
     }
-    firefox {
-        driver = { new FirefoxDriver() }
+} else {
+    driver = {
+        new ChromeDriver()
     }
 }

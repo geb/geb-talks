@@ -6,17 +6,16 @@ More info @ [http://gebish.org/manual/current](http://www.gebish.org/manual/curr
 
 Examine binary resources easily, with the session state.
 
-    Browser.drive {
-        go "http://myapp.com/login"
-
-        // login
-        username = "me"
-        password = "secret"
-        login().click()
-        def downloadLink = $("a.pdf-download-link")
-
-        // now get the pdf bytes (that requires authentication)
-        def bytes = downloadBytes(downloadLink.@href)
+    class AdminPdfSpec extends GebSpec {
+        when:
+        to LoginPage
+        loginAs "user1", "password"
+        
+        then:
+        def pdfUrl = $("a.pdf-download-link").@href
+        def pdf = downloadBytes(downloadLink.@href)
+        
+        extractTextWithPdfBoxFrom(pdf) == "Username: user1"
     }
 
 Also `downloadStream()` and `downloadText()`.
@@ -30,7 +29,7 @@ Also `downloadStream()` and `downloadText()`.
         }
     </script>
 
-Can access global JS variables and functions with Groovy code…
+Access global JS variables and functions with Groovy code…
 
     js.globalVar = 1
     assert js.globalVar == 1
@@ -39,15 +38,11 @@ Can access global JS variables and functions with Groovy code…
 
 ## jQuery Adapter
 
-Geb makes it easy to get a jQuery object for content.
+Dynamic Groovy side jQuery proxies.
 
     $("input").jquery.keydown()
 
-Useful for simulating interactions that are difficult/unreliable with the WebDriver API.
-
-The `jquery` property is a proxy for an equivalent jQuery object in the JS runtime.
-
-**Not to be abused!**
+Useful for event simulation.
 
 ## Interaction DSL (Actions)
 
@@ -69,10 +64,6 @@ DSL for building actions…
 
 Builds on top of WebDriver's [`Actions`](http://selenium.googlecode.com/svn/trunk/docs/api/java/org/openqa/selenium/interactions/Actions.html) support.
 
-# Demo
-
-Interactions
-
 ## Remote Browsers
 
 Selenium supports automating browsers on other machines.
@@ -85,7 +76,3 @@ Requires:
 Also supports a hub/node setup.
 
 Browsers in the cloud by [SauceLabs](https://saucelabs.com/ "Sauce Labs: Mobile and Web App Testing Tools For Developers").
-
-# Demo
-
-Remote browsers

@@ -1,18 +1,18 @@
 # Content DSL
 
-Reuse FTW
-
 ## Content DSL
+
+General form…
 
     class SomePage extends Page {
         static content = {
-            «name»(«options») { «lookup» }
+            «name»(«options») { «definition» }
         }
     }
 
-Content definitions are actually *templates*, implemented as Groovy closures.
-
 ## Content properties
+
+Unparameterized…
 
     class SomePage extends Page {
         static content = {
@@ -20,12 +20,14 @@ Content definitions are actually *templates*, implemented as Groovy closures.
         }
     }
 
-Defined content can be accessed as properties…
+Read as properties…
 
     to SomePage
     assert heading.tagName() == "h1"
 
 ## Content methods
+
+Parameterized…
 
     class SomePage extends Page {
         static content = {
@@ -33,49 +35,53 @@ Defined content can be accessed as properties…
         }
     }
 
-Content can be parameterised, then accessed via methods…
+Called like methods…
 
     to SomePage
     assert listItem(3).text() == "Item 4"
 
 ## Stacked content
 
+Content can build on other content.
+
     class GoogleResultsPage extends Page {
         static content = {
-            results { $("li.g") }
-            result { i -> results[i] }
-            resultLink { i -> result(i).find("a.l", 0) }
             firstResultLink { resultLink(0) }
+            resultLink { i -> result(i).find("a.l", 0) }
+            result { i -> results[i] }
+            results { $("li.g") }
         }
     }
 
-Content definitions can *build* upon each other.
-
 ## Value content
+
+Content can be anything…
 
     class SomePage extends Page {
         static content = {
             headingText { $("h1").text() }
+            price { $("div.cart").text().toDouble() }
         }
     }
 
-Defined content can be any type of object…
+<!-- -->
 
     to SomePage
     assert heading == "Welcome to Geb!"
+    assert price == 99.99
 
-## Optional Content
+## Fail fast
+
+Content must be true-ish, unless not required.
 
     class OptionalPage extends Page {
         static content = {
+            heading { $("h1") }
             errorMsg(required: false) { $("p.errorMsg") }
         }
     }
 
-By default, Geb will error if the content you select doesn't exist to support the principle of fail-fast.
+On empty page…
 
-The “`required`” option disables this check.
-
-# Demo
-
-Pages
+    heading.text() == "foo" // exception
+    errorMsg.size() == 0 // no exception
