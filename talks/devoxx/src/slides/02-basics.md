@@ -18,7 +18,12 @@ WebDriver + JUnit
 
 ## Spock
 
-Spock basics
+A developer testing framework for Java and Groovy applications.
+
+* Open Source (ASLv2)
+* Mission: Expressive Tests that are a joy to read and write
+
+About five years old.
 
 ---
 
@@ -28,14 +33,14 @@ Do WebDriver + Spock
 
 Full solution framework on top of WebDriver.
 
-* ASLv2 / Open Source
+* Open Source (ASLv2)
 * Groovy only
 * DSL based
 * Developer focussed
 * Test framework agnostic (though optimized for Spock)
 * Solutions to common problems
 
-About 4 years old.
+About four years old.
 
 ## Geb & Spock
 

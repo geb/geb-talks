@@ -96,4 +96,4 @@ Fail fast == less debugging.
     menu.loginButton.click()
     at LoginPage
 
-Will throw an exception if every statement of the at check is not true.
+Will throw an exception unless every statement of the at check is true.

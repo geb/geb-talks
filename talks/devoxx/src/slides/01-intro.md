@@ -10,9 +10,9 @@ Unfortunately, can't ignore it just because it's hard.
 
 ## High cost
 
-* flakey
-* hard to write
-* slow
+* Flakey
+* Hard to write
+* Slow
 
 ## High value
 
