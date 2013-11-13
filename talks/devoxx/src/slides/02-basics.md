@@ -61,3 +61,6 @@ The `geb.Browser` object.
     browser.$("h1").text == "Some App"
 
 Implicitly delegated to in GebSpecs.
+
+    go "http://app.org"
+    $("h1").text == "Some App"
