@@ -1,4 +1,4 @@
-package _03_pages
+package _04_pages
 
 import content.login.LoginFailedPage
 import content.login.LoginPage

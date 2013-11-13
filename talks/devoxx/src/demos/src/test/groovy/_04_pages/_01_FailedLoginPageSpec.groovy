@@ -1,4 +1,4 @@
-package _03_pages
+package _04_pages
 
 import content.login.LoginFailedPage
 import content.login.LoginPage
@@ -10,7 +10,7 @@ class _01_FailedLoginPageSpec extends GebReportingSpec {
 
     def "go to login page"() {
         when:
-        to LoginPage
+        to Logi nPage
 
         then:
         heading == "Please sign in"

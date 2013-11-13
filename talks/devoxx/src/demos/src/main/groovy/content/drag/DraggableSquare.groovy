@@ -16,21 +16,21 @@ class DraggableSquare extends Module {
         def yChunkSize = abs(ceil(yOffset / chunks).toInteger())
 
         (chunks + 1).times { i ->
+            def distanceToX = max(x, endX) - min(x, endX)
+            def distanceToY = max(y, endY) - min(y, endY)
+
+            def moveX = x == endX ? 0 : min(distanceToX, xChunkSize)
+            def moveY = y == endY ? 0 : min(distanceToY, yChunkSize)
+
+            if (xOffset < 0) {
+                moveX = 0 - moveX
+            }
+
+            if (yOffset < 0) {
+                moveY = 0 - moveY
+            }
+
             browser.interact {
-                def distanceToX = max(x, endX) - min(x, endX)
-                def distanceToY = max(y, endY) - min(y, endY)
-
-                def moveX = x == endX ? 0 : min(distanceToX, xChunkSize)
-                def moveY = y == endY ? 0 : min(distanceToY, yChunkSize)
-
-                if (xOffset < 0) {
-                    moveX = 0 - moveX
-                }
-
-                if (yOffset < 0) {
-                    moveY = 0 - moveY
-                }
-
                 dragAndDropBy $(), moveX, moveY
             }
         }

@@ -26,7 +26,7 @@ if (sauceBrowser) {
     def accessKey = System.getenv("GEB_SAUCE_LABS_ACCESS_PASSWORD")
     assert accessKey
 
-    reportsDir = "cross-browser/${[sauceBrowser username, accessKey].join("_")}"
+    reportsDir = "cross-browser/${[sauceBrowser, username, accessKey].join("_")}"
 
     driver = {
         new SauceLabsDriverFactory().create(sauceBrowser, username, accessKey)

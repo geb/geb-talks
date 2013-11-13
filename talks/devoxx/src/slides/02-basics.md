@@ -12,9 +12,9 @@ a.k.a “Selenium 2”.
 
 Becoming a [W3C standard](http://dvcs.w3.org/hg/webdriver/raw-file/515b648d58ff/webdriver-spec.html).
 
----
+# Demo
 
-Do WebDriver + JUnit demo
+WebDriver + JUnit
 
 ## Spock
 
@@ -37,10 +37,6 @@ Full solution framework on top of WebDriver.
 
 About 4 years old.
 
----
-
-Spock + Geb demo.
-
 ## Geb & Spock
 
 Spock is the recommended test framework for Geb.
@@ -49,6 +45,10 @@ Spock is the recommended test framework for Geb.
 * Highly readable
 * No assertion APIs
 * Great diagnostic messages
+
+# Demo
+
+Geb & Spock
 
 ## Geb API
 

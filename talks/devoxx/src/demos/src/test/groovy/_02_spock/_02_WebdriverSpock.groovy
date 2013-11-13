@@ -3,14 +3,15 @@ package _02_spock
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
+import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class WebdriverSpock extends Specification {
+class _02_WebdriverSpock extends Specification {
 
-    WebDriver driver = new ChromeDriver()
+    @Shared WebDriver driver = new ChromeDriver()
 
-    def cleanup() {
+    def cleanupSpec() {
         driver.quit()
     }
 
