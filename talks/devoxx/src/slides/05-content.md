@@ -85,3 +85,7 @@ On empty page…
 
     heading.text() == "foo" // exception
     errorMsg.size() == 0 // no exception
+
+# Demo
+
+Geb Page Objects

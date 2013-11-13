@@ -8,7 +8,7 @@ Modern web apps are fundamentally async.
 
 * Ajax
 * Effects
-* SPAs
+* Single Page Apps
 
 Only known solution is to use spin asserts.
 
@@ -56,46 +56,6 @@ Waiting now implicit.
 
 Best approach.
 
-## Timeout and retry
+# Demo 
 
-Defaults specified via config…
-
-`GebConfig.groovy`:
-
-    waiting {
-        timeout = 10
-        retryInterval = 0.5
-    }
-
-## Wait Presets
-
-Named presets support fail fast.
-
-    waiting {
-        presets {
-            slow {
-                timeout = 20
-                retryInterval = 1
-            }
-            quick {
-                timeout = 1
-            }
-        }
-    }
-    
-<!-- -->
-
-    waitFor("slow") { someVerySlowThing() }
-
-## “Continuous Optimist”
-
-Wind up the timeout value on the CI server.
-
-`GebConfig.groovy`:
-
-    waiting {
-        timeout = isCiServer ? 60 : 10
-        retryInterval = 0.5
-    }
-
-Avoids premature timeouts and false failures.
+Async Login
