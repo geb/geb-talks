@@ -1,4 +1,4 @@
-# This and that
+# Geb Feature Tour
 
 More info @ [http://gebish.org/manual/current](http://www.gebish.org/manual/current)
 
@@ -15,7 +15,7 @@ WebDriver supports:
 
 No real difference.
 
-Page objects still apply.
+Can still use page objects.
 
 Liberal use of _waiting_.
 
@@ -28,7 +28,7 @@ Liberal use of _waiting_.
         }
     </script>
 
-Access global JS variables and functions with Groovy code…
+Access global JS variables and functions from Groovy code…
 
     js.globalVar = 1
     assert js.globalVar == 1
@@ -41,7 +41,7 @@ Dynamic Groovy side jQuery proxies.
 
     $("input").jquery.keydown()
 
-Useful for event simulation.
+Useful for simulating events.
 
 ## Interaction DSL (Actions)
 

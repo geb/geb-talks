@@ -1,11 +1,18 @@
+# Building Blocks
+
+* WebDriver
+* Spock
+* Geb
+
 # WebDriver
 
 [seleniumhq.org/projects/webdriver/](http://seleniumhq.org/projects/webdriver/)
 
 ## WebDriver
 
-a.k.a “Selenium 2”.
+API for browser interaction.
 
+* Also known as "Selenium 2"
 * Extremely active project
 * Investment from big players (Facebook, Google, Mozilla, Opera)
 * Heavily used by many big sites
@@ -30,7 +37,7 @@ A developer testing framework for Java and Groovy applications.
 * Strong JUnit integration
 * Works with all major build tools, IDEs, and CI servers
 
-About five years old.
+Used by Gradle, Spring, Tapestry, Grails, Sky UK, JFrog, Sony, Netflix, ... 
 
 # Demo
 
@@ -42,7 +49,7 @@ WebDriver & Spock
 
 Run the same test multiple times, vary the data.
 
-    def "login verifies the user's credentials"() {
+    def "login only succeeds for valid credentials"() {
         when:
         login(username, password)
 
@@ -58,6 +65,17 @@ Run the same test multiple times, vary the data.
 ## Stubbing & Mocking
 
 Spock comes with a built-in mocking framework.
+
+    def shuttle = new SpaceShuttle()
+    def landingGear = Mock(LandingGear)
+    
+    when:
+    shuttle.prepareForLanding()
+    
+    then:
+    1 * landingGear.lower("full")
+    
+Cool, but irrelevant for Functional Web Testing.
 
 ## Extensions
 
@@ -79,25 +97,15 @@ Integrate with other frameworks and platforms.
 
 ## Geb
 
-Full solution framework on top of WebDriver.
+Groovy browser automation framework on top of WebDriver.
 
 * Open Source (ASLv2)
-* Groovy only
-* DSL based
-* Developer focussed
+* Groovy-based DSL
+* Developer focused
 * Test framework agnostic (though optimized for Spock)
 * Solutions to common problems
 
 Used by Sky UK, Yellow Pages AU, Comcast …
-
-## Geb & Spock
-
-Spock is the recommended test framework for Geb.
-
-* Low ceremony (little syntactic noise)
-* Highly readable
-* No assertion APIs
-* Great diagnostic messages
 
 # Demo
 

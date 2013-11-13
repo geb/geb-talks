@@ -1,66 +1,84 @@
-# Geb & Spock
+# Spock & Geb
 
 Taming Functional Web Testing
 
-## Web Tests
+## About Us
 
-It's hard.
+Peter Niederwieser
 
-Maintenance is a nightmare.
+* Principal Engineer at Gradleware
+* Computer language & chocolate addict based in Linz, Austria
+* Creator of Spock
 
-## High cost
+Luke Daley
 
+* Principal Engineer at Gradleware
+* Musician & kangaroo hunter based in London
+* Creator of Geb
+
+## The Challenge
+
+Functional web testing is hard:
+
+* Hard to automate
 * Flakey
-* Hard to write
 * Slow
 
-## High value
+But also rewarding:
 
-When done right, gives high assurance that things are working.
+* Proves that your app works
+* Iterate faster
+* Save money
 
 # Approaches
 
 ## Recorder Driven
 
-e.g. Selenium IDE
+Record human browser interaction.
+
+Example: Selenium IDE
 
 * Easy to produce
+* Hard to reason about
+* Hard to maintain
 * Hard to evolve
-* Hard to read
-* Hard to refactor
-* Hard to remove
 
-Incomprehensible.
+## Scripting
 
-## Programmatic
+Scripted browser interaction.
 
-e.g. Canoo WebTest, early WebDriver
+Examples: Canoo WebTest, early WebDriver
 
-* Marginally better than recorder driven.
-* Typically no reuse or abstractions.
+* Easier to reason about, maintain, and evolve than Recorder Driven
+* Low-level, HTML-centric language
+* Some reuse and abstraction
 
 ## Model Driven
 
-e.g. Page Objects
+Scripted interaction with (model of) web app.
 
-* Easier to maintain & refactor
-* Supports reuse
-* Better comprehensibility through abstractions
+Examples: WebDriver with Page Objects
+
+* Easier to reason about, maintain, and evolve than Scripting
+* High-level, domain-centric language
+* Good reuse and abstraction
+* Higher initial cost than Scripting
 
 ## Natural Language
 
-e.g. Cucumber
+Formulate use cases in English-like language.
 
-* Can be layered on top of modelling
-* Emphasis on comprehensibility
+Examples: Cucumber, JBehave
+
+* Layer on top of Scripting/Model Driven
+* Involve non-technical stakeholders
 * Supports reuse
 * Indirection cost
 
-## Geb & Spock
+## Spock & Geb
 
-Developer productivity focussed approach.
+Developer focused approach.
 
-* DSL based (not Natural Language)
-* Just Groovy code (no regular expression mapping)
-* Emphasis on modelling
-* Optimized for failure
+* (Groovy) code-only, yet very readable
+* Strong modeling
+* Focus on usability and good feedback
