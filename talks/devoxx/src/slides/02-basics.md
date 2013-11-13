@@ -14,20 +14,23 @@ Becoming a [W3C standard](http://dvcs.w3.org/hg/webdriver/raw-file/515b648d58ff/
 
 # Demo
 
-WebDriver + JUnit
+WebDriver & JUnit
 
 ## Spock
 
 A developer testing framework for Java and Groovy applications.
 
 * Open Source (ASLv2)
-* Mission: Expressive Tests that are a joy to read and write
+* Mission: Expressive tests that are a joy to read and write
+* Suitable for unit, integration, functional testing
+* Strong JUnit integration
+* Works with all major build tools, IDEs, and CI servers
 
 About five years old.
 
----
+# Demo
 
-Do WebDriver + Spock
+WebDriver & Spock
 
 ## Geb
 
