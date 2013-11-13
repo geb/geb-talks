@@ -1,8 +1,6 @@
 # Building Blocks
 
-* WebDriver
-* Spock
-* Geb
+WebDriver, Spock, Geb
 
 # WebDriver
 
