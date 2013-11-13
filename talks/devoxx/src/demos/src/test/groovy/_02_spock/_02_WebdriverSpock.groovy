@@ -10,14 +10,13 @@ import spock.lang.Unroll
 
 @Stepwise
 class _02_WebdriverSpock extends Specification {
-
     @Shared WebDriver driver = new ChromeDriver()
 
     def cleanupSpec() {
         driver.quit()
     }
 
-    def "successful login"() {
+    def "can login successfully"() {
         when:
         driver.get("http://localhost:5050/login")
 
@@ -33,12 +32,11 @@ class _02_WebdriverSpock extends Specification {
         driver.findElement(By.tagName("h1")).text == "Login Successful"
     }
 
-    def "after login"() {
+    def "navigate to secret page"() {
         when:
         driver.findElement(By.cssSelector("a.btn")).click()
 
         then:
         driver.findElement(By.tagName("h1")).text == "Secret Page!"
     }
-
 }

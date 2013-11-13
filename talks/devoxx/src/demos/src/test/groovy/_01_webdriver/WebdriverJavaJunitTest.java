@@ -1,7 +1,7 @@
 package _01_webdriver;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -13,21 +13,20 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
 public class WebdriverJavaJunitTest {
+    private static WebDriver driver;
 
-    private WebDriver driver;
-
-    @Before
+    @BeforeClass
     public void before() {
         driver = new ChromeDriver();
     }
 
-    @After
+    @AfterClass
     public void after() {
         driver.quit();
     }
 
     @Test
-    public void canSuccessfullyLogInToSite() {
+    public void canLoginSuccessFully() {
         driver.get("http://localhost:5050/login");
         assertEquals(driver.findElement(By.tagName("h1")).getText(), "Please sign in");
         driver.findElement(By.name("username")).sendKeys("devoxx");
@@ -35,15 +34,4 @@ public class WebdriverJavaJunitTest {
         driver.findElement(By.tagName("button")).click();
         assertEquals(driver.findElement(By.tagName("h1")).getText(), "Login Successful");
     }
-
-    @Test
-    public void canUnSuccessfullyLogInToSite() {
-        driver.get("http://localhost:5050/login");
-        assertEquals(driver.findElement(By.tagName("h1")).getText(), "Please sign in");
-        driver.findElement(By.name("username")).sendKeys("wrong");
-        driver.findElement(By.name("password")).sendKeys("wrong");
-        driver.findElement(By.tagName("button")).click();
-        assertEquals(driver.findElement(By.tagName("h1")).getText(), "Login Failed");
-    }
-
 }

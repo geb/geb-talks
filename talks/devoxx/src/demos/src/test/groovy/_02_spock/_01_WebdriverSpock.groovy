@@ -8,14 +8,13 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 class _01_WebdriverSpock extends Specification {
-
     @Shared WebDriver driver = new ChromeDriver()
 
     def cleanupSpec() {
         driver.quit()
     }
 
-    def "can successfully login"() {
+    def "can login successfully"() {
         when:
         driver.get("http://localhost:5050/login")
 
@@ -30,5 +29,4 @@ class _01_WebdriverSpock extends Specification {
         then:
         driver.findElement(By.tagName("h1")).text == "Login Successful"
     }
-
 }
