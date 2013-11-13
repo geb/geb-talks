@@ -10,9 +10,9 @@ Maintenance is a nightmare.
 
 ## High cost
 
-* flakey
-* hard to write
-* slow
+* Flakey
+* Hard to write
+* Slow
 
 ## High value
 

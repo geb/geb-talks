@@ -1,6 +1,6 @@
 # WebDriver
 
-[http://seleniumhq.org/projects/webdriver/](http://seleniumhq.org/projects/webdriver/)
+[seleniumhq.org/projects/webdriver/](http://seleniumhq.org/projects/webdriver/)
 
 ## WebDriver
 
@@ -14,21 +14,74 @@ Becoming a [W3C standard](http://dvcs.w3.org/hg/webdriver/raw-file/515b648d58ff/
 
 # Demo
 
-WebDriver + JUnit
+WebDriver & JUnit
+
+# Spock
+
+[spockframework.org](http://spockframework.org)
 
 ## Spock
 
-Spock basics
+A developer testing framework for Java and Groovy applications.
 
----
+* Open Source (ASLv2)
+* Mission: Expressive tests that are a joy to read and write
+* Suitable for unit, integration, functional testing
+* Strong JUnit integration
+* Works with all major build tools, IDEs, and CI servers
 
-Do WebDriver + Spock
+About five years old.
+
+# Demo
+
+WebDriver & Spock
+
+# Spock Feature Tour
+
+## Data Driven Testing
+
+Run the same test multiple times, vary the data.
+
+    def "login verifies the user's credentials"() {
+        when:
+        login(username, password)
+
+        then:
+        at targetPage
+        
+        where:
+        username | password || targetPage
+        "devoxx" | "devoxx" || LoginSuccessPage
+        "devoxx" | "dunno"  || LoginFailedPage           
+    }
+
+## Stubbing & Mocking
+
+Spock comes with a built-in mocking framework.
+
+## Extensions
+
+Integrate with other frameworks and platforms.
+
+* Hamcrest
+* Unitils
+* Spring
+* Guice
+* Tapestry
+* Grails
+* Griffon
+* Arquillian
+* ...
+
+# Geb
+
+[gebish.org](http://gebish.org)
 
 ## Geb
 
 Full solution framework on top of WebDriver.
 
-* ASLv2 / Open Source
+* Open Source (ASLv2)
 * Groovy only
 * DSL based
 * Developer focussed
