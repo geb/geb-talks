@@ -10,7 +10,7 @@ class _01_FailedLoginPageSpec extends GebReportingSpec {
 
     def "go to login page"() {
         when:
-        to Logi nPage
+        to LoginPage
 
         then:
         heading == "Please sign in"

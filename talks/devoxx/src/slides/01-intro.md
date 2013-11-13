@@ -2,11 +2,11 @@
 
 Taming Functional Web Testing
 
-## The Problem
+## Web Tests
 
-Automated functional web testing is painful.
+It's hard.
 
-Unfortunately, can't ignore it just because it's hard.
+Maintenance is a nightmare.
 
 ## High cost
 

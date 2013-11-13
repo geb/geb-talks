@@ -32,8 +32,8 @@ Domain language:
 
     orders[0].lineItems[2].price == 2.00
     
-Increased comprehensibility.
-
+    
+<br />More comprehensible.
 
 ## Geb's Page Objects
 
@@ -50,7 +50,7 @@ Increased comprehensibility.
         void anInstanceMethod() {}
     }
 
-## The to() method
+## Navigation
 
     class GoogleHomePage extends Page {
         static url = "http://google.com/ncr"
@@ -78,9 +78,7 @@ In test/spec…
 
     login(…)
 
-(implicit browser delegation)
-
-## At Checking
+## At the right page?
 
 Fail fast == less debugging.
 

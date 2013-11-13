@@ -35,7 +35,7 @@ Full solution framework on top of WebDriver.
 * Test framework agnostic (though optimized for Spock)
 * Solutions to common problems
 
-About 4 years old.
+Used by Sky UK, Yellow Pages AU, Comcast …
 
 ## Geb & Spock
 

@@ -2,7 +2,7 @@
 
 Trying to solve the halting problem…
 
-## Async
+## Async Apps
 
 Modern web apps are fundamentally async.
 
@@ -27,19 +27,7 @@ Or…
         $("p.requestResult").text() == "Request Successful!"
     }
 
-Implicitly assertions.
-
-## Groovy Truth
-
-Groovy's truthiness.
-
-    waitFor { $("p.errorMsg") }.text() == "Error!"
-    
-    waitFor { $("p.errorMsg").text() } == "Error!"
-    
-    waitFor { $("p.errorMsg").text() == "Error!" }
-
-Very useful.
+Implicit assertions.
 
 ## Waiting Content
 

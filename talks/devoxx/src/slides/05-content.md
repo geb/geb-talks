@@ -1,5 +1,7 @@
 # Content DSL
 
+Modelling page structure
+
 ## Content DSL
 
 General form…
@@ -70,7 +72,7 @@ Content can be anything…
     assert heading == "Welcome to Geb!"
     assert price == 99.99
 
-## Fail fast
+## Fail fast on missing content
 
 Content must be true-ish, unless not required.
 

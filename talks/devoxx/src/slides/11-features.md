@@ -2,23 +2,22 @@
 
 More info @ [http://gebish.org/manual/current](http://www.gebish.org/manual/current)
 
-## Direct Downloading
+## Mobile Browsers
 
-Examine binary resources easily, with the session state.
+WebDriver supports:
 
-    class AdminPdfSpec extends GebSpec {
-        when:
-        to LoginPage
-        loginAs "user1", "password"
-        
-        then:
-        def pdfUrl = $("a.pdf-download-link").@href
-        def pdf = downloadBytes(downloadLink.@href)
-        
-        extractTextWithPdfBoxFrom(pdf) == "Username: user1"
-    }
+* Android Browser
+* Mobile Safari (iPhone & iPad)
 
-Also `downloadStream()` and `downloadText()`.
+[https://code.google.com/p/selenium/wiki/WebDriverForMobileBrowsers](https://code.google.com/p/selenium/wiki/WebDriverForMobileBrowsers)
+
+## Single Page Apps
+
+No real difference.
+
+Page objects still apply.
+
+Liberal use of _waiting_.
 
 ## JavaScript Interface
 
@@ -63,10 +62,6 @@ DSL for building actions…
     }
 
 Builds on top of WebDriver's [`Actions`](http://selenium.googlecode.com/svn/trunk/docs/api/java/org/openqa/selenium/interactions/Actions.html) support.
-
-# Demo
-
-Interactions
 
 ## Remote Browsers
 
