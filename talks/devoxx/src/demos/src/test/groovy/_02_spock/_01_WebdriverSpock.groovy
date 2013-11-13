@@ -31,20 +31,4 @@ class _01_WebdriverSpock extends Specification {
         driver.findElement(By.tagName("h1")).text == "Login Successful"
     }
 
-    def "can unsuccessfully login"() {
-        when:
-        driver.get("http://localhost:5050/login")
-
-        then:
-        driver.findElement(By.tagName("h1")).text == "Please sign in"
-
-        when:
-        driver.findElement(By.name("username")).sendKeys("bad")
-        driver.findElement(By.name("password")).sendKeys("user")
-        driver.findElement(By.tagName("button")).click()
-
-        then:
-        driver.findElement(By.tagName("h1")).text == "Login Failed"
-    }
-
 }

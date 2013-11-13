@@ -5,8 +5,10 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Stepwise
 import spock.lang.Unroll
 
+@Stepwise
 class _02_WebdriverSpock extends Specification {
 
     @Shared WebDriver driver = new ChromeDriver()
@@ -15,8 +17,7 @@ class _02_WebdriverSpock extends Specification {
         driver.quit()
     }
 
-    @Unroll
-    "#type login produces #msg message"() {
+    def "successful login"() {
         when:
         driver.get("http://localhost:5050/login")
 
@@ -24,17 +25,20 @@ class _02_WebdriverSpock extends Specification {
         driver.findElement(By.tagName("h1")).text == "Please sign in"
 
         when:
-        driver.findElement(By.name("username")).sendKeys(username)
-        driver.findElement(By.name("password")).sendKeys(password)
+        driver.findElement(By.name("username")).sendKeys("devoxx")
+        driver.findElement(By.name("password")).sendKeys("devoxx")
         driver.findElement(By.tagName("button")).click()
 
         then:
-        driver.findElement(By.tagName("h1")).text == msg
+        driver.findElement(By.tagName("h1")).text == "Login Successful"
+    }
 
-        where:
-        type      | username | password | msg
-        "success" | "devoxx" | "devoxx" | "Login Successful"
-        "failed"  | "wrong"  | "wrong"  | "Login Failed"
+    def "after login"() {
+        when:
+        driver.findElement(By.cssSelector("a.btn")).click()
+
+        then:
+        driver.findElement(By.tagName("h1")).text == "Secret Page!"
     }
 
 }
