@@ -16,12 +16,12 @@ public class WebdriverJavaJunitTest {
     private static WebDriver driver;
 
     @BeforeClass
-    public void before() {
+    public static void before() {
         driver = new ChromeDriver();
     }
 
     @AfterClass
-    public void after() {
+    public static void after() {
         driver.quit();
     }
 

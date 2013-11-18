@@ -32,7 +32,7 @@ class _02_FailedLoginPageSpecWithTypes extends GebReportingSpec {
         def page = to LoginPage
 
         when:
-        page.login("user", "password", true)
+        page.login("devoxx", "devoxx", true)
 
         then:
         at LoginSuccessPage

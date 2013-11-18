@@ -5,8 +5,10 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Stepwise
 import spock.lang.Unroll
 
+@Stepwise
 class _01_WebdriverSpock extends Specification {
     @Shared WebDriver driver = new ChromeDriver()
 
@@ -28,5 +30,13 @@ class _01_WebdriverSpock extends Specification {
 
         then:
         driver.findElement(By.tagName("h1")).text == "Login Successful"
+    }
+
+    def "navigate to secret page"() {
+        when:
+        driver.findElement(By.cssSelector("a.btn")).click()
+
+        then:
+        driver.findElement(By.tagName("h1")).text == "Secret Page!"
     }
 }

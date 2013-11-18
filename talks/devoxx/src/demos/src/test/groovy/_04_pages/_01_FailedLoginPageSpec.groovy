@@ -22,7 +22,7 @@ class _01_FailedLoginPageSpec extends GebReportingSpec {
         login("user", "wrong-password", true)
 
         then:
-        at LoginFailedPage
+        at LoginPage
     }
 
 }

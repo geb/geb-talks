@@ -3,7 +3,7 @@ package _03_geb
 import geb.spock.GebSpec
 
 class LoginSpec extends GebSpec {
-    "can login successfully"() {
+    def "can login successfully"() {
         when:
         go "/login"
 
