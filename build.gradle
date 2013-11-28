@@ -3,10 +3,6 @@ import org.gradle.plugins.pegdown.PegDown
 import org.gradle.plugins.lesscss.LessCss
 import org.gradle.plugins.xhtmlrenderer.XhtmlToPdf
 
-task wrapper(type: Wrapper) {
-    gradleVersion = "1.7-rc-1"
-}
-
 // Put the downloads in a different place so clean doesn't wipe them outs
 ext.downloadDir = file("downloads")
 task cleanDownloads(type: Delete) {
