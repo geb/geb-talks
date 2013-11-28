@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login Result</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+<body>
+<div class="container">
+    <% if (model.success) { %>
+        <h1 class="text-success">Login Successful</h1>
+    <% } else { %>
+        <h1 class="text-error">Login Failed</h1>
+    <% } %>
+    <ul>
+        <li><span class="key">Username</span>: <span class="value">${model.username}</span></li>
+        <li><span class="key">Password</span>: <span class="value">${model.password}</span></li>
+        <li><span class="key">Remember</span>: <span class="value">${model.remember}</span></li>
+    </ul>
+    <% if (model.success) { %>
+    <a href="/secret" class="btn">Go to secret page!</a>
+    <% } %>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

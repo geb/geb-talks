@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sign in page</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        form {
+            border: 1px solid black;
+            margin: 1em;
+            padding: 1em;
+        }
+        .fade {
+            opacity: 0;
+            -webkit-transition: opacity 0.5s linear;
+            -moz-transition: opacity 0.5s linear;
+            -o-transition: opacity 0.5s linear;
+            transition: opacity 0.5s linear;
+        }
+        .fade.in {
+            opacity: 1;
+        }
+    </style>
+<body>
+<div class="container">
+
+<h1 style="text-align: center">Please sign in (async style)</h1>
+    <div class='alert fade'><button type='button' class='close'>&times;</button><div></div></div>
+    <form class="form-horizontal">
+
+
+        <div class="control-group">
+            <label class="control-label" for="username">Email</label>
+
+            <div class="controls">
+                <input type="text" id="username" name="username" class="input-block-level" placeholder="username">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Password</label>
+
+            <div class="controls">
+                <input type="password" id="password" name="password" class="input-block-level" placeholder="password">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" id="rememberme" name="rememberme" value="remember-me"> Remember me
+                </label>
+
+                <button class="btn btn-primary" type="submit">Sign in</button>
+                <img src="/img/ajax-loader.gif" id="loader" style="display: none;" />
+            </div>
+        </div>
+    </form>
+
+</div>
+<!-- /container -->
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $("form button").click(function() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var remember = $("#rememberme").val();
+
+        $(".alert button").click();
+        $("#loader").show();
+
+        setTimeout(function() {
+            $("#loader").hide();
+            var valid = username == "devoxx" && password == "devoxx";
+            var div = $("div.alert");
+
+            var p = div.find("div");
+            div.removeClass('alert-success');
+            div.removeClass('alert-error');
+            div.addClass(valid ? 'alert-success' : 'alert-error');
+            if (valid) {
+                p.text("Login successful. Please wait for redirection…");
+                setTimeout(function() {
+                    window.location = "/login?username=devoxx&password=devoxx&rememberme=" + remember;
+                }, 2000);
+            } else {
+                p.text("Login failed.");
+            }
+            div.addClass("in");
+        }, 1000);
+        return false;
+    });
+
+    $(".alert button").click(function() {
+        $(".alert").removeClass("in");
+    });
+
+</script>
+</body>
+</html>

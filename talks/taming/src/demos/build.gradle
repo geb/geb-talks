@@ -1,0 +1,68 @@
+buildscript {
+  repositories {
+    maven { url "https://oss.jfrog.org/artifactory/repo" }
+    jcenter()
+  }
+  dependencies {
+    classpath 'io.ratpack:ratpack-gradle:0.9.0-SNAPSHOT'
+    classpath 'org.gebish:geb-gradle:0.9.2'
+  }
+}
+
+repositories {
+  jcenter()
+  maven { url "https://oss.jfrog.org/artifactory/repo" }
+  maven { url "http://repository-saucelabs.forge.cloudbees.com/release" }
+}
+
+apply plugin: "ratpack-groovy"
+apply plugin: "geb-saucelabs"
+apply plugin: "idea"
+
+idea {
+    project {
+        jdkName "1.7"
+        languageLevel "1.7"
+    }
+}
+
+def gebVersion = "0.9.2"
+def seleniumVersion = "2.36.0"
+def drivers = ["chrome", "firefox"]
+
+configurations.all {
+    exclude module: "groovy"
+}
+
+dependencies {
+    drivers.each { driver ->
+        compile "org.seleniumhq.selenium:selenium-$driver-driver:$seleniumVersion"
+    }
+
+    compile "org.gebish:geb-junit4:$gebVersion"
+    compile "org.gebish:geb-spock:$gebVersion"
+    compile "org.spockframework:spock-core:0.7-groovy-2.0", {
+        exclude module: "groovy-all"
+    }
+
+    sauceConnect "com.saucelabs:sauce-connect:3.0.29"
+}
+
+import geb.gradle.saucelabs.*
+sauceLabs {
+    browsers {
+        firefox_linux_19
+        chrome_mac
+        internetExplorer_vista_9
+    }
+    task {
+        testClassesDir = test.testClassesDir
+        testSrcDirs = test.testSrcDirs
+        classpath = test.classpath
+        include "_05_*/*"
+    }
+    account {
+        username = System.getenv(SauceAccount.USER_ENV_VAR)
+        accessKey = System.getenv(SauceAccount.ACCESS_KEY_ENV_VAR)
+    }
+}
