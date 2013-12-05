@@ -3,6 +3,7 @@ package _02_spock
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
+import spock.lang.AutoCleanup
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Stepwise
@@ -10,11 +11,9 @@ import spock.lang.Unroll
 
 @Stepwise
 class _01_WebdriverSpock extends Specification {
-    @Shared WebDriver driver = new ChromeDriver()
-
-    def cleanupSpec() {
-        driver.quit()
-    }
+    @Shared
+    @AutoCleanup("quit")
+    WebDriver driver = new ChromeDriver()
 
     def "can login successfully"() {
         when:
