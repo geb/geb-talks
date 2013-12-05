@@ -11,8 +11,8 @@ class LoginSpec extends GebSpec {
         $("h1").text() == "Please sign in"
 
         when:
-        username = "devoxx"
-        password = "devoxx"
+        username = "rwx"
+        password = "rwx"
         signIn().click()
 
         then:

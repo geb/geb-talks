@@ -29,7 +29,7 @@ class _01_AsyncLogin extends GebReportingSpec {
         to AsyncLoginPage
 
         when:
-        login "devoxx", "devoxx", true
+        login "rwx", "rwx", true
 
         then:
         waitFor { at LoginSuccessPage }

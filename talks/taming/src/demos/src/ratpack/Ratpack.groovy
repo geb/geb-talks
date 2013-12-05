@@ -9,7 +9,7 @@ ratpack {
                 model.username = params.username
                 model.password = params.password
                 model.remember = params.rememberme as boolean
-                model.success = (model.username == "devoxx" && model.password == "devoxx")
+                model.success = (model.username == "rwx" && model.password == "rwx")
 
                 render groovyTemplate(model, "login-result.html")
             } else {

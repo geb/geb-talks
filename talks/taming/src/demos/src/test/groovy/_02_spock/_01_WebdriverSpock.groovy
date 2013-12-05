@@ -24,8 +24,8 @@ class _01_WebdriverSpock extends Specification {
         driver.findElement(By.tagName("h1")).text == "Please sign in"
 
         when:
-        driver.findElement(By.name("username")).sendKeys("devoxx")
-        driver.findElement(By.name("password")).sendKeys("devoxx")
+        driver.findElement(By.name("username")).sendKeys("rwx")
+        driver.findElement(By.name("password")).sendKeys("rwx")
         driver.findElement(By.tagName("button")).click()
 
         then:

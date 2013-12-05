@@ -29,8 +29,8 @@ public class WebdriverJavaJunitTest {
     public void canLoginSuccessFully() {
         driver.get("http://localhost:5050/login");
         assertEquals(driver.findElement(By.tagName("h1")).getText(), "Please sign in");
-        driver.findElement(By.name("username")).sendKeys("devoxx");
-        driver.findElement(By.name("password")).sendKeys("devoxx");
+        driver.findElement(By.name("username")).sendKeys("rwx");
+        driver.findElement(By.name("password")).sendKeys("rwx");
         driver.findElement(By.tagName("button")).click();
         assertEquals(driver.findElement(By.tagName("h1")).getText(), "Login Successful");
     }

@@ -71,7 +71,7 @@
 
         setTimeout(function() {
             $("#loader").hide();
-            var valid = username == "devoxx" && password == "devoxx";
+            var valid = username == "rwx" && password == "rwx";
             var div = $("div.alert");
 
             var p = div.find("div");
@@ -81,7 +81,7 @@
             if (valid) {
                 p.text("Login successful. Please wait for redirection…");
                 setTimeout(function() {
-                    window.location = "/login?username=devoxx&password=devoxx&rememberme=" + remember;
+                    window.location = "/login?username=rwx&password=rwx&rememberme=" + remember;
                 }, 2000);
             } else {
                 p.text("Login failed.");
